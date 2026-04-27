@@ -10,7 +10,7 @@ export default function App({children}: teste) {
 
   return (
     <main className='h-dvh bg-gray-400'>
-      <p>children</p>
+      <p>${children}</p>
     </main>
   )
 }
