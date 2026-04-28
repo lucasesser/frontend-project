@@ -1,16 +1,12 @@
 import { useState } from 'react'
-import React from 'react'
+import Text from './components/text'
 
-interface teste {
-  children: React.ReactNode
-}
-
-export default function App({children}: teste) {
+export default function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <main className='h-dvh bg-gray-400'>
-      <p>${children}</p>
+    <main className='h-dvh flex flex-col justify-center items-center'>
+      <Text variant="Text Sm">Teste</Text>
     </main>
   )
 }
