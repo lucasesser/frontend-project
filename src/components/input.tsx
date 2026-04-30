@@ -1,7 +1,7 @@
-import { cva, VariantProps } from "class-variance-authority"
-import type React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import Text from "./text"
 
-const inputVariants = cva("border rounded-lg font-open-sans text-sm/4.5 font-normal p-4",
+const inputVariants = cva("border rounded-lg font-open-sans text-sm/4.5 font-normal p-4 items-center",
     {
         variants: {
             variant: {
@@ -17,11 +17,17 @@ const inputVariants = cva("border rounded-lg font-open-sans text-sm/4.5 font-nor
 )
 
 interface inputs extends VariantProps<typeof inputVariants>{
-    children?: React.ReactNode
+    placeholder?: string
+    className?: string
 }
 
-export default function Input({children, variant}: inputs) {
+export default function Input({placeholder, className, variant}: inputs) {
     return(
-        <input className:  inputVariants({""})/>
+        <div className="flex flex-col justify-start gap-2">
+            <Text variant="Text Xs">LINK ORIGINAL</Text>
+            <input className={inputVariants({variant, className})} placeholder={placeholder}/>
+            {if(variant="danger"){}}
+            if(variant="danger"){<Text variant="Text Xs">TESTE</Text>}
+        </div>
     )
 }
