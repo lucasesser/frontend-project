@@ -1,5 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority"
 import Text from "./text"
+import Warning from "../assets/icons/warning.svg?react"
 
 const inputVariants = cva("border rounded-lg font-open-sans text-sm/4.5 font-normal p-4 items-center",
     {
@@ -7,7 +8,7 @@ const inputVariants = cva("border rounded-lg font-open-sans text-sm/4.5 font-nor
             variant: {
                 "default": "border-gray-300",
                 "active": "border-blue-base",
-                "error": "border-r-danger"
+                "error": "border-danger"
             }
         },
         defaultVariants: {
@@ -24,10 +25,10 @@ interface inputs extends VariantProps<typeof inputVariants>{
 export default function Input({placeholder, className, variant}: inputs) {
     return(
         <div className="flex flex-col justify-start gap-2">
-            <Text variant="Text Xs">LINK ORIGINAL</Text>
+            <Text variant="Text Xs" className={variant === "error" ? "text-danger" : undefined}>LINK ORIGINAL</Text>
             <input className={inputVariants({variant, className})} placeholder={placeholder}/>
-            {if(variant="danger"){}}
-            if(variant="danger"){<Text variant="Text Xs">TESTE</Text>}
+            {variant === "error" && <Text variant="Text Xs" className="text-danger">Error message</Text>}
+            <Warning className="fill-danger"/>
         </div>
     )
 }
