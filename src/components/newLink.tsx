@@ -1,16 +1,16 @@
 import Text from "./text";
 import Input from "./input";
+import Button from "./button";
 
 export default function NewLink() {
     return (
-        <div className="bg-white flex flex-col rounded-lg p-8 gap-2 w-full">
+        <div className="bg-white flex flex-col rounded-lg p-8 gap-6 max-w-95 max-h-85 w-full">
             <Text variant="Text Lg">Novo link</Text>
-            <Text variant="Text Xs">LINK ORIGINAL</Text>
-            <Input placeholder="testando" variant="active"/>
-            
-            <input placeholder="www.exemplo.com.br" className="border rounded-lg border-gray-300 font-open-sans text-sm/4.5 font-normal p-4"/>
+            <div className="flex flex-col gap-4">
+                <Input title="LINK ORIGINAL" placeholder="www.exemplo.com.br" variant="default"/>
+                <Input title="LINK ENCURTADO" placeholder="brev.ly/" variant="default"/>
+            </div>
+            <Button />
         </div>
     )
 }
-
-
