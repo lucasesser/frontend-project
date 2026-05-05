@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import Text from "./text"
 import Warning from "../assets/icons/warning.svg?react"
 
-const inputVariants = cva("border rounded-lg font-open-sans text-sm/4.5 font-normal p-4 items-center w-full",
+const inputVariants = cva("border rounded-lg font-open-sans text-sm/4.5 h-12 px-4 font-normal items-center w-full",
     {
         variants: {
             variant: {
