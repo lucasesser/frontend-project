@@ -10,7 +10,7 @@ export default function NewLink() {
                 <Input title="LINK ORIGINAL" placeholder="www.exemplo.com.br" variant="default"/>
                 <Input title="LINK ENCURTADO" placeholder="brev.ly/" variant="default"/>
             </div>
-            <Button />
+            <Button variant="primary" subVariant="hover">Teste</Button>
         </div>
     )
 }
