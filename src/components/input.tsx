@@ -27,7 +27,7 @@ export default function Input({title, placeholder, className, variant, ...props}
     return(
         <div className="flex flex-col justify-start gap-2">
             <Text variant="Text Xs" className={variant === "error" ? "text-danger" : undefined}>{title}</Text>
-            <input  className={inputVariants({variant, className})} placeholder={placeholder}/>
+            <input  className={inputVariants({variant, className})} placeholder={placeholder} {...props}/>
             {variant === "error" && <div className="flex items-center gap-2"><Warning className="fill-danger size-3"/><Text variant="Text Sm">Error message</Text></div>}
         </div>
     )
