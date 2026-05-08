@@ -12,7 +12,7 @@ export default function MyLinks() {
                 <Button variant="secondary" subVariant="default" svg={Download}>Baixar CSV</Button>
             </div>
             <div>
-                <LinkItem/>
+                <NoLinks/>
             </div>
         </div>
     )

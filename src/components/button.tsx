@@ -5,7 +5,8 @@ const buttonVariants = cva("", {
     variants: {
         variant: {
             primary: ["w-full", "h-12", "rounded-lg", "text-white"],
-            secondary: ["w-max", "h-8", "bg-gray-200", "rounded-sm", "flex", "justify-center", "items-center", "gap-1.5", "px-2"]
+            secondary: ["w-max", "h-8", "bg-gray-200", "rounded-sm", "flex", "justify-center", "items-center", "gap-1.5", "px-2"],
+            icon: ["size-8", "bg-gray-200", "rounded-sm", "flex", "justify-center", "items-center"]
         },
         subVariant: {
             default: "",
@@ -38,6 +39,11 @@ const buttonVariants = cva("", {
             variant: "secondary",
             subVariant: "disabled",
             class: ["opacity-50"]
+        },
+        {
+            variant: "icon",
+            subVariant: "hover",
+            class: ["border", "border-b-blue-base"]
         }
     ]
 })

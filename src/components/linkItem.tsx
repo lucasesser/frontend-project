@@ -1,4 +1,7 @@
+import IconButton from "./iconButton";
 import Text from "./text";
+import Copy from "../assets/icons/copy.svg?react"
+import Trash from "../assets/icons/trash.svg?react"
 
 export default function LinkItem() {
     return(
@@ -7,9 +10,12 @@ export default function LinkItem() {
                 <Text variant="Text Md" className="text-blue-base">brev.ly/Portfolio-Dev</Text>
                 <Text variant="Text Sm">devsite.portfolio.com.br/devname-123456</Text>
             </div>
-            <div>
+            <div className="flex flex-row items-center gap-5">
                 <Text variant="Text Sm">30 acessos</Text>
-                
+                <div className="flex flex-row gap-1">
+                    <IconButton svg={Copy}/>
+                    <IconButton svg={Trash}/>
+                </div>
             </div>
         </div>
     )
