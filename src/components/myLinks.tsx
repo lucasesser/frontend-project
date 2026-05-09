@@ -12,7 +12,7 @@ export default function MyLinks() {
                 <Button variant="secondary" subVariant="default" svg={Download}>Baixar CSV</Button>
             </div>
             <div>
-                <LinkItem/>
+                <LinkItem linkEncurtado="brev.ly/Portfolio-Dev" linkOriginal="devsite.portfolio.com.br/devname-123456" accessCount={30}/>
             </div>
         </div>
     )

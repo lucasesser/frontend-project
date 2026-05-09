@@ -1,5 +1,7 @@
 import { cva, type VariantProps, cx } from "class-variance-authority"
 import { textVariants } from "./text"
+import { useState } from "react";
+import axios from "axios";
 
 const buttonVariants = cva("", {
     variants: {
@@ -39,11 +41,6 @@ const buttonVariants = cva("", {
             variant: "secondary",
             subVariant: "disabled",
             class: ["opacity-50"]
-        },
-        {
-            variant: "icon",
-            subVariant: "hover",
-            class: ["border", "border-b-blue-base"]
         }
     ]
 })
@@ -53,9 +50,21 @@ interface buttonInputs extends React.ComponentProps<"svg">, VariantProps<typeof 
     svg?: React.FC<React.ComponentProps<"svg">>;
 }
 
-export default function Button({children, variant, subVariant, svg: SvgComponent}: buttonInputs) {
+export default function Button({children, variant, svg: SvgComponent}: buttonInputs) {
+    const [subVariantState, setSubVariant] = useState<"default"| "hover">("default")
+
     return(
-        <button className={cx(buttonVariants({variant, subVariant}), variant === "secondary" ? textVariants({variant: "Text Sm", className: "font-semibold"}) : textVariants({variant: "Text Md"}))}>
+        <button 
+        className={cx(buttonVariants({variant, subVariant:subVariantState}),
+        variant === "secondary" ? textVariants({variant: "Text Sm", className: "font-semibold"}) : textVariants({variant: "Text Md"}))}
+        onMouseEnter={() => setSubVariant("hover")}
+        onMouseLeave={() => setSubVariant("default")}
+        onClick={async () => {
+            const teste = await axios.get("/listurls")
+            console.log(teste);
+            
+        }}
+        >
             {variant === "secondary" && SvgComponent && <SvgComponent className="size-4"/>}
             {children}
         </button>
