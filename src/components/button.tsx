@@ -50,7 +50,7 @@ interface buttonInputs extends React.ComponentProps<"svg">, VariantProps<typeof 
     svg?: React.FC<React.ComponentProps<"svg">>;
 }
 
-export default function Button({children, variant, svg: SvgComponent}: buttonInputs) {
+export default function Button({children, variant, svg: SvgComponent, ...props}: buttonInputs) {
     const [subVariantState, setSubVariant] = useState<"default"| "hover">("default")
 
     return(
@@ -59,11 +59,6 @@ export default function Button({children, variant, svg: SvgComponent}: buttonInp
         variant === "secondary" ? textVariants({variant: "Text Sm", className: "font-semibold"}) : textVariants({variant: "Text Md"}))}
         onMouseEnter={() => setSubVariant("hover")}
         onMouseLeave={() => setSubVariant("default")}
-        onClick={async () => {
-            const teste = await axios.get("/listurls")
-            console.log(teste);
-            
-        }}
         >
             {variant === "secondary" && SvgComponent && <SvgComponent className="size-4"/>}
             {children}

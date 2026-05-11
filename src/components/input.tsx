@@ -21,6 +21,8 @@ interface inputs extends VariantProps<typeof inputVariants>{
     title: string
     placeholder?: string
     className?: string
+    value?: string;
+    onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 export default function Input({title, placeholder, className, variant, ...props}: inputs) {
