@@ -45,9 +45,9 @@ const buttonVariants = cva("", {
     ]
 })
 
-interface buttonInputs extends React.ComponentProps<"svg">, VariantProps<typeof buttonVariants> {
+interface buttonInputs extends React.ComponentProps<"button">, VariantProps<typeof buttonVariants> {
     children: string
-    svg?: React.FC<React.ComponentProps<"svg">>;
+    svg?: React.FC<React.ComponentProps<"svg">>
 }
 
 export default function Button({children, variant, svg: SvgComponent, ...props}: buttonInputs) {
@@ -57,6 +57,7 @@ export default function Button({children, variant, svg: SvgComponent, ...props}:
         <button 
         className={cx(buttonVariants({variant, subVariant:subVariantState}),
         variant === "secondary" ? textVariants({variant: "Text Sm", className: "font-semibold"}) : textVariants({variant: "Text Md"}))}
+        {...props}
         onMouseEnter={() => setSubVariant("hover")}
         onMouseLeave={() => setSubVariant("default")}
         >
