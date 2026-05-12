@@ -6,5 +6,5 @@ interface newLinkInputs {
 }
 
 export default function newLink({linkOriginal, linkEncurtado}: newLinkInputs) {
-
+    const result = api.post("/newlink", {})
 }
