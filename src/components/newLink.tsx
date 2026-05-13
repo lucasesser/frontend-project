@@ -2,6 +2,7 @@ import Text from "./text";
 import Input from "./input";
 import Button from "./button";
 import React, { useState } from "react";
+import newLink from "../http/newLink";
 
 const PREFIX = "brev.ly/";
 
@@ -13,6 +14,8 @@ export default function NewLink() {
         if (value.startsWith(PREFIX)) {
             value = value.slice(PREFIX.length);
             setShortLink(value);
+
+            
         } else {
             setShortLink("")
         }
@@ -32,7 +35,7 @@ export default function NewLink() {
                     onChange={handleShortLinkChange}
                 />
             </div>
-            <Button variant="primary" subVariant="hover" onClick={() => alert("teste")}>Salvar link</Button>
+            <Button variant="primary" subVariant="hover" onClick={() => newLink({linkOriginal: "https://testandotestes.com.br", linkEncurtado: "testandotestes"})}>Salvar link</Button>
         </div>
     );
 }
