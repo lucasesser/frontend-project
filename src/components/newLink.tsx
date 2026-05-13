@@ -8,6 +8,7 @@ const PREFIX = "brev.ly/";
 
 export default function NewLink() {
     const [shortLink, setShortLink] = useState("");
+    const [validateShortLink, setValidateShort] = useState(true)
 
     const handleShortLinkChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         let value = e.target.value;
@@ -19,6 +20,7 @@ export default function NewLink() {
         } else {
             setShortLink("")
         }
+        setValidateShort(/^[a-zA-Z0-9]*$/.test(value))
     };
 
     return (
@@ -30,7 +32,7 @@ export default function NewLink() {
                     key="linkEncurtado"
                     title="LINK ENCURTADO"
                     placeholder={PREFIX}
-                    variant="default"
+                    variant={validateShortLink ? "default" : "error"}
                     value={PREFIX + shortLink}
                     onChange={handleShortLinkChange}
                 />
