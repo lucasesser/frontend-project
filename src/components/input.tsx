@@ -17,20 +17,27 @@ const inputVariants = cva("border rounded-lg font-open-sans text-sm/4.5 h-12 px-
     }
 )
 
-interface inputs extends VariantProps<typeof inputVariants>{
-    title: string
-    placeholder?: string
-    className?: string
-    value?: string;
-    onChange?: React.ChangeEventHandler<HTMLInputElement>;
+interface inputs extends VariantProps<typeof inputVariants>, React.InputHTMLAttributes<HTMLInputElement>{
+    title: string,
+    placeholder?: string,
+    className?: string,
+    value?: string,
+    errorMessage?: string
 }
 
-export default function Input({title, placeholder, className, variant, ...props}: inputs) {
+const colorMap = {
+  default: "",
+  active: "text-blue-base",
+  error: "text-danger"
+}
+
+export default function Input({title, placeholder, className, errorMessage, variant, ...props}: inputs) {
+
     return(
         <div className="flex flex-col justify-start gap-2">
-            <Text variant="Text Xs" className={variant === "error" ? "text-danger" : undefined}>{title}</Text>
+            <Text variant="Text Xs" className={colorMap[variant as keyof typeof colorMap]}>{title}</Text>
             <input className={inputVariants({variant, className})} placeholder={placeholder} {...props}/>
-            {variant === "error" && <div className="flex items-center gap-2"><Warning className="fill-danger size-3"/><Text variant="Text Sm">Error message</Text></div>}
+            {variant === "error" && <div className="flex items-center gap-2"><Warning className="fill-danger size-3"/><Text variant="Text Sm">{errorMessage}</Text></div>}
         </div>
     )
 }

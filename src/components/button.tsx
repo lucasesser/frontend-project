@@ -6,7 +6,7 @@ import axios from "axios";
 const buttonVariants = cva("", {
     variants: {
         variant: {
-            primary: ["w-full", "h-12", "rounded-lg", "text-white"],
+            primary: ["w-full", "h-12", "rounded-lg", "text-white", "flex", "justify-center", "items-center", "gap-1"],
             secondary: ["w-max", "h-8", "bg-gray-200", "rounded-sm", "flex", "justify-center", "items-center", "gap-1.5", "px-2"],
             icon: ["size-8", "bg-gray-200", "rounded-sm", "flex", "justify-center", "items-center"]
         },
@@ -30,7 +30,7 @@ const buttonVariants = cva("", {
         {
             variant: "primary",
             subVariant: "disabled",
-            class: ["bg-blue-base", "opacity-50"]
+            class: ["bg-blue-base", "opacity-40"]
         },
         {
             variant: "secondary",
@@ -46,20 +46,17 @@ const buttonVariants = cva("", {
 })
 
 interface buttonInputs extends React.ComponentProps<"button">, VariantProps<typeof buttonVariants> {
-    children: string
+    children: any
     svg?: React.FC<React.ComponentProps<"svg">>
 }
 
-export default function Button({children, variant, svg: SvgComponent, ...props}: buttonInputs) {
-    const [subVariantState, setSubVariant] = useState<"default"| "hover">("default")
+export default function Button({children, variant, subVariant, svg: SvgComponent, ...props}: buttonInputs) {
 
     return(
         <button 
-        className={cx(buttonVariants({variant, subVariant:subVariantState}),
+        className={cx(buttonVariants({variant, subVariant}),
         variant === "secondary" ? textVariants({variant: "Text Sm", className: "font-semibold"}) : textVariants({variant: "Text Md"}))}
         {...props}
-        onMouseEnter={() => setSubVariant("hover")}
-        onMouseLeave={() => setSubVariant("default")}
         >
             {variant === "secondary" && SvgComponent && <SvgComponent className="size-4"/>}
             {children}

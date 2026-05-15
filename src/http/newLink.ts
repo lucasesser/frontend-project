@@ -1,12 +1,12 @@
 import api from "./axios";
 
 interface newLinkInputs {
-    linkOriginal: string,
-    linkEncurtado: string
+    originalLink: string,
+    shortLink: string
 }
 
-export default async function newLink({linkOriginal, linkEncurtado}: newLinkInputs) {
-    const result = await api.post("/newlink", {original: linkOriginal, shortLink: linkEncurtado})
+export default async function newLink({originalLink, shortLink}: newLinkInputs) {
+    const result = await api.post("/newlink", {original: originalLink, shortLink: shortLink})
     console.log(result);
     
 }
