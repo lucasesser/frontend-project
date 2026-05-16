@@ -3,28 +3,15 @@ import Text from "./text";
 import Download from '../assets/icons/download-simple.svg?react'
 import NoLinks from "./noLinks";
 import LinkItem from "./linkItem";
-import getLinks from "../http/getLinks";
-import { useEffect, useState } from "react";
 
-export default function MyLinks() {
-    type linksType = {
-        id: string,
-        linkOriginal: string,
-        linkEncurtado: string,
-        accessCount: number
-    }
+type linksType = {
+    id: string,
+    linkOriginal: string,
+    linkEncurtado: string,
+    accessCount: number
+}
 
-    const [links, setLinks] = useState<linksType[]>([])
-
-    useEffect(() => {
-        async function loadData() {
-            const linksReturn = await getLinks()
-            setLinks(linksReturn)            
-        }    
-
-        loadData()        
-    }, [])
-
+export default function MyLinks({links, onDelete}: {links: linksType[], onDelete: () => void}) {
     return(
         <div className="flex flex-col justify-center p-8 bg-white rounded-lg max-w-145 w-full h-max gap-5">
             <div className="w-full flex justify-between items-center">
@@ -34,7 +21,7 @@ export default function MyLinks() {
             <div>
                 {links.length > 0 ? (
                     links.map((link) => (
-                        <LinkItem key={link.id} linkEncurtado={"brev.ly/" + link.linkEncurtado} linkOriginal={link.linkOriginal} accessCount={link.accessCount  }/>
+                        <LinkItem key={link.id} id={link.id} linkEncurtado={"brev.ly/" + link.linkEncurtado} linkOriginal={link.linkOriginal} accessCount={link.accessCount} onDelete={onDelete}/>
                     ))
                 ) : (
                     <NoLinks />

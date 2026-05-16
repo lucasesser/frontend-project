@@ -1,7 +1,5 @@
 import { cva, type VariantProps, cx } from "class-variance-authority"
 import { textVariants } from "./text"
-import { useState } from "react";
-import axios from "axios";
 
 const buttonVariants = cva("", {
     variants: {
@@ -30,7 +28,7 @@ const buttonVariants = cva("", {
         {
             variant: "primary",
             subVariant: "disabled",
-            class: ["bg-blue-base", "opacity-40"]
+            class: ["bg-blue-base", "opacity-40q"]
         },
         {
             variant: "secondary",
