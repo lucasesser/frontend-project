@@ -28,7 +28,7 @@ const buttonVariants = cva("", {
         {
             variant: "primary",
             subVariant: "disabled",
-            class: ["bg-blue-base", "opacity-40q"]
+            class: ["bg-blue-base", "opacity-40"]
         },
         {
             variant: "secondary",

@@ -21,7 +21,7 @@ export default function MyLinks({links, onDelete}: {links: linksType[], onDelete
             <div>
                 {links.length > 0 ? (
                     links.map((link) => (
-                        <LinkItem key={link.id} id={link.id} linkEncurtado={"brev.ly/" + link.linkEncurtado} linkOriginal={link.linkOriginal} accessCount={link.accessCount} onDelete={onDelete}/>
+                        <LinkItem key={link.id} id={link.id} linkEncurtado={link.linkEncurtado} linkOriginal={link.linkOriginal} accessCount={link.accessCount} onDelete={onDelete}/>
                     ))
                 ) : (
                     <NoLinks />

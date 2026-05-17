@@ -1,11 +1,11 @@
-import NewLink from './components/newLink'
-import Logo from './assets/images/Logo.svg?react'
-import MyLinks from './components/myLinks'
+import NewLink from '../components/newLink'
+import Logo from '../assets/images/Logo.svg?react'
+import MyLinks from '../components/myLinks'
 import { Toaster } from 'sonner'
 import { useEffect, useState } from 'react'
-import getLinks from './http/getLinks'
+import getLinks from '../http/getLinks'
 
-export default function App() {
+export default function Home() {
     type linksType = {
         id: string,
         linkOriginal: string,

@@ -58,17 +58,17 @@ export default function NewLink({onCreate}: {onCreate: () => void}) {
         if (originalLink.length > 0 && variantOriginalLink != "error" && shortLink.length > 0 && variantShortLink != "error") {
             try {
                 setLoading(true);
-                setSubVariantButton("disabled");
+                 setSubVariantButton("disabled");
                 await newLink({ originalLink, shortLink });
-                toast.success("Link cadastrado")
-                setOriginalLink("")
-                setShortLink("")
-                onCreate()
+                toast.success("Link cadastrado");
+                setOriginalLink("");
+                setShortLink("");
+                onCreate();
             } catch(error) {
                 if(axios.isAxiosError(error)) {
                     if(error.response?.status === 409) {
-                        setErrorMessageShortLink("Este link encurtado ja existe")
-                        setVariantShortLink("error")
+                        setErrorMessageShortLink("Este link encurtado ja existe");
+                        setVariantShortLink("error");
                     }
                 }
 
