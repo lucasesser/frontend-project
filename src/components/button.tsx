@@ -33,7 +33,7 @@ const buttonVariants = cva("", {
         {
             variant: "secondary",
             subVariant: "hover",
-            class: ["border", "border-b-blue-base"]
+            class: ["border"]
         },
         {
             variant: "secondary",

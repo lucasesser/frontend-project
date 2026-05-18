@@ -13,11 +13,15 @@ export default function Redirecting() {
         const originalLink = await getAccessLink(linkEncurtado)
         console.log(originalLink);
         setLinkOriginal(originalLink)
-        navigate("https://facebook.com")
+        if(originalLink){
+            window.location.href = originalLink
+        }else{
+            navigate("/notfound")
+        }
     }
 
     useEffect(() => {
-        accessLink(linkEncurtado ? linkEncurtado : "notfound")
+        linkEncurtado && accessLink(linkEncurtado)
     }, [])
 
     return(
