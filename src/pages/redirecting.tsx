@@ -26,11 +26,11 @@ export default function Redirecting() {
 
     return(
         <div className="h-dvh bg-gray-200 flex justify-center items-center">
-            <div className="bg-white flex flex-col justify-center items-center py-16 px-12 rounded-lg gap-6">
+            <div className="bg-white flex flex-col justify-center items-center py-16 px-12 rounded-lg gap-6 m-3 max-w-145 w-full">
                 <LogoIcon className="size-12"/>
                 <Text variant="Text Xl">Redirecionando...</Text>
-                <div className="flex flex-col items-center justify-center gap-1 w-121">
-                    <Text variant="Text Md" className="text-gray-500">O link será aberto automaticamente em alguns instantes.</Text>
+                <div className="flex flex-col items-center justify-center gap-1">
+                    <Text variant="Text Md" className="text-gray-500 text-center">O link será aberto automaticamente em alguns instantes.</Text>
                     <Text variant="Text Md" className="text-gray-500">Não foi redirecionado? <a href={linkOriginal} className="text-blue-base underline">Acesse aqui</a></Text>
                 </div>
             </div>

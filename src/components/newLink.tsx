@@ -90,7 +90,7 @@ export default function NewLink({onCreate}: {onCreate: () => void}) {
     }
 
     return (
-        <div className="bg-white flex flex-col rounded-lg p-8 gap-6 max-w-95 w-full h-max">
+        <div className="bg-white flex flex-col rounded-lg p-6 md:p-8 gap-5 md:gap-6 max-w-95 w-full h-max">
             <Text variant="Text Lg">Novo link</Text>
             <div className="flex flex-col gap-4">
                 <Input

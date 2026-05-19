@@ -27,9 +27,9 @@ export default function Home() {
   return (
     <main className='h-dvh bg-gray-200 flex flex-col justify-center items-center p-2'>
       <Toaster richColors/>
-      <div className="flex flex-col max-w-245 w-full gap-8">
+      <div className="flex flex-col items-center md:items-start max-w-245 w-full gap-8">
         <Logo className="fill-blue-base w-24.5 h-6"/>
-        <div className="flex w-full gap-5">
+        <div className="flex flex-col md:flex-row items-center md:items-start w-full gap-5">
           <NewLink onCreate={loadData}/>
           <MyLinks links={links} onDelete={loadData}/>
         </div>
